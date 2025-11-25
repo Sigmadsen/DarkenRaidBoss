@@ -63,7 +63,7 @@ async def wait_and_send_respawn(chat_id: int):
     scheduled_tasks.pop(chat_id, None)
 
 
-@router.message(F.text.in_({"1", "2", "3"}))
+@router.message(F.text.in_({"АК убит", "Ак убит", "ак убит"}))
 async def on_signal(message: Message):
     # Если кто-то написал 1/2/3 вручную — тоже реагируем
     if message.from_user.is_bot:
@@ -88,7 +88,7 @@ async def cmd_status(message: Message):
     else:
         hours = int(remaining // 3600)
         minutes = int((remaining % 3600) // 60)
-        await message.reply(f"До «Ак респ» осталось: {hours} ч {minutes} мин")
+        await message.reply(f"До «Ак респ» осталось: {hours} ч {minutes} мин + (от 0 до 2х часов)")
 
 
 async def main():
