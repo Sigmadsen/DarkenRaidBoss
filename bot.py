@@ -10,6 +10,9 @@ from aiogram.types import Message
 # ================= НАСТРОЙКИ =================
 API_TOKEN = os.getenv('API_TOKEN')  # ← сюда токен от @BotFather
 
+if not API_TOKEN:
+    raise ValueError("Не найден API_TOKEN в переменных окружения!")
+
 # Время в секундах = 24 часа
 RESPAWN_TIME = 24 * 60 * 60
 
